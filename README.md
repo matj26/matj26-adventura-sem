@@ -1,1 +1,1 @@
-Větev s základní textovou verzí adventury.
+Větev dev pro vývoj verze adventury s funknčím uživatelským rozhraním.
