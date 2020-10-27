@@ -1,1 +1,1 @@
-Hlavní větev main s funkční verzí adventury.
+Větev s základní textovou verzí adventury.
