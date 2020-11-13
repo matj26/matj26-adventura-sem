@@ -108,11 +108,15 @@ public class Area
                 + itemNames + "\n"
                 + exitNames + "\n";
     }
+
+    public String getDescription() {
+        return description;
+    }
     
     /**
      * Metoda zamyká lokaci, aby do ní nebylo možné jít.
      *
-     * @param zamknutí lokace
+     * @param //zamknutí lokace
      */
     public void lockArea(boolean lock) {
         locked = lock;
