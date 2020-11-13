@@ -4,6 +4,8 @@ import cz.vse.matejka.model.IGame;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class MainController {
 
@@ -14,6 +16,7 @@ public class MainController {
     public Label areaName;
     public Label areaDescription;
     private IGame game;
+    private KeyEvent keyEvent;
 
     public void init(IGame game) {
         this.game = game;
@@ -34,6 +37,18 @@ public class MainController {
         String description = game.getGamePlan().getCurrentArea().getDescription();
         areaDescription.setText(description);
 
+    }
+
+    private void executeCommand(String command) {
+        String result = game.processCommand(command);
+        textOutput.appendText(result + "\n\n");
+    }
+
+    public void onInputKeyPressed(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            executeCommand(textInput.getText());
+            textInput.setText("");
+        }
     }
 
     private String getAreaNameProperly(String areaName) {

@@ -29,7 +29,7 @@
     </top>
     <bottom>
       <VBox fx:id="textAreas" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <TextField fx:id="textInput" />
+            <TextField fx:id="textInput" onKeyPressed="#onInputKeyPressed"/>
             <TextArea fx:id="textOutput" editable="false" prefHeight="200.0" prefWidth="200.0" />
       </VBox>
    </bottom>

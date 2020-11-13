@@ -13,4 +13,6 @@
 .infoBoxs {
     -fx-opacity: 0.65;
     -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 6px;
 }
