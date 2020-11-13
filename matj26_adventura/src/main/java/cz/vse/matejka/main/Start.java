@@ -1,9 +1,17 @@
 package cz.vse.matejka.main;
 
 
+import cz.vse.matejka.MainController;
 import cz.vse.matejka.model.Game;
 import cz.vse.matejka.model.IGame;
 import cz.vse.matejka.textui.TextUI;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.InputStream;
 
 /**
  * Hlavní třída určená pro spuštění hry. Obsahuje pouze statickou metodu
@@ -14,7 +22,7 @@ import cz.vse.matejka.textui.TextUI;
  * @author Jan Říha
  * @version LS 2020
  */
-public final class Start
+public final class Start extends Application
 {
     /**
      * Metoda pro spuštění celé aplikace.
@@ -23,16 +31,24 @@ public final class Start
      */
     public static void main(String[] args)
     {
-        IGame game = new Game();
-        TextUI textUI = new TextUI(game);
-        
-        if (args.length == 0) {
-            textUI.play();
-        } else {
-            textUI.play(args[0]);
-        }
+        launch();
     }
 
-    private Start() {}
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Dopis pro krále");
+
+        FXMLLoader loader = new FXMLLoader();
+        InputStream stream = getClass().getClassLoader().getResourceAsStream("scene.fxml");
+        Parent root = loader.load(stream);
+
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+
+        MainController controller = loader.getController();
+        IGame game = new Game();
+
+        primaryStage.show();
+    }
 }
