@@ -9,8 +9,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.io.InputStream;
 
 /**
@@ -38,6 +41,7 @@ public final class Start extends Application
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Dopis pro krále");
+        primaryStage.setMaximized(true);
 
         FXMLLoader loader = new FXMLLoader();
         InputStream stream = getClass().getClassLoader().getResourceAsStream("scene.fxml");
@@ -46,9 +50,15 @@ public final class Start extends Application
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
 
+        //Ikona
+        InputStream streamIcon = getClass().getClassLoader().getResourceAsStream("icon.png");
+        Image imageIcon = new Image(streamIcon);
+        primaryStage.getIcons().add(imageIcon);
+
         MainController controller = loader.getController();
         IGame game = new Game();
 
+        controller.init(game);
         primaryStage.show();
     }
 }
