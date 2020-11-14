@@ -60,12 +60,12 @@ public class MainController {
         Collection<Area> exitAreas = getArea().getExits();
         exits.getChildren().clear();
         for (Area area : exitAreas) {
-            Label element = createObject(area.getName());
+            Label element = createObject(area.getName(),"areas");
             element.setOnMouseClicked(event -> {
                 executeCommand("jdi " + element.getText());
             });
             element.setTooltip(new Tooltip("Kliknutím půjdeš do lokace " + element.getText() + "."));
-            String style = new String("-fx-background-image: url" + "('" + getArea().getName() + ".jpg')");
+            String style = new String("-fx-background-image: url" + "('areas/" + getArea().getName() + ".jpg')");
             background.setStyle(style);
             exits.getChildren().add(element);
         }
@@ -75,7 +75,7 @@ public class MainController {
         Collection<Item> areaItems = getArea().getAreaItems().values();
         items.getChildren().clear();
         for (Item item : areaItems) {
-            Label element = createObject(item.getName());
+            Label element = createObject(item.getName(),"items");
             if(item.isMoveable()) {
                 element.setTooltip(new Tooltip("Kliknutím sebereš předmět " + element.getText() + "."));
                 element.setOnMouseClicked(event -> {
@@ -96,7 +96,7 @@ public class MainController {
         Collection<Person> areaPersons = getArea().getAreaPersons().values();
         persons.getChildren().clear();
         for (Person person : areaPersons) {
-            Label element = createObject(person.getName());
+            Label element = createObject(person.getName(),"persons");
             if(person.isEnemy()) {
                 //element.setStyle("-fx-border-color: red");
                 element.setTooltip(new Tooltip("Kliknutím zaútočíš na " + element.getText() + "."));
@@ -118,7 +118,7 @@ public class MainController {
         Collection<Item> playerInventory = game.getGamePlan().getInventory().getItems().values();
         inventory.getChildren().clear();
         for (Item item : playerInventory) {
-            Label element = createObject(item.getName());
+            Label element = createObject(item.getName(),"items");
             if(item.getName().equals("jed")) {
                 element.setTooltip(new Tooltip("Kliknutím použiješ předmět " + element.getText() + "."));
                 element.setOnMouseClicked(event -> {
@@ -134,10 +134,10 @@ public class MainController {
         }
     }
 
-    private Label createObject(String name) {
+    private Label createObject(String name, String directory) {
         Label label = new Label(name);
         label.setCursor(Cursor.HAND);
-        InputStream stream = getClass().getClassLoader().getResourceAsStream(name+ ".jpg");
+        InputStream stream = getClass().getClassLoader().getResourceAsStream(directory + "/" + name+ ".jpg");
         Image img = new Image(stream);
         ImageView imageView = new ImageView(img);
         imageView.setFitWidth(100);
