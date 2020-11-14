@@ -34,7 +34,13 @@ public final class Start extends Application
      */
     public static void main(String[] args)
     {
-        launch();
+        if(args.length > 0 && args[0].equals("text")) {
+            IGame game = new Game();
+            TextUI ui = new TextUI(game);
+            ui.play();
+        } else {
+            launch();
+        }
     }
 
 
