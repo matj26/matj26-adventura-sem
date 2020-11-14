@@ -1,10 +1,6 @@
 package cz.vse.matejka.model;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Třída představuje lokaci <i>(místo, místnost, prostor)</i> ve scénáři hry.
@@ -109,6 +105,11 @@ public class Area
                 + exitNames + "\n";
     }
 
+    /**
+     * Metoda vrací neupravený popisek dané lokace.
+     *
+     */
+
     public String getDescription() {
         return description;
     }
@@ -155,6 +156,16 @@ public class Area
         return exits.stream()
                     .filter(exit -> exit.getName().equals(areaName))
                     .findAny().orElse(null);
+    }
+
+
+    /**
+     * Metoda vrátí kolekci sousedních prostorů dané lokace.
+     *
+     * @return Vrátí kolekci prostorů pro čtení, se kterými daná lokace sousdedí.
+     */
+    public Collection<Area> getExits() {
+        return Collections.unmodifiableCollection(exits);
     }
 
     /**
@@ -251,6 +262,15 @@ public class Area
     }
 
     /**
+     * Metoda vrací kolekci všech předmětů v lokaci.
+     *
+     *  @return vrátí odkaz na kolekci předmětů
+     */
+    public Map<String, Item> getAreaItems() {
+        return items;
+    }
+
+    /**
      * Metoda kontroluje, zda lokace obsahuje daný předmět.
      *
      * @param itemName jméno předmětu
@@ -305,6 +325,14 @@ public class Area
     public Person getPerson(String personName)
     {
         return persons.get(personName);
+    }
+
+    /**
+     * Metoda vrací kolekci všech postav v lokaci.
+     * @return vrátí odkaz na kolekci osob
+     */
+    public Map<String, Person> getAreaPersons() {
+        return persons;
     }
  
     /**
@@ -372,4 +400,5 @@ public class Area
     {
         this.description += statement;
     }
+
 }
