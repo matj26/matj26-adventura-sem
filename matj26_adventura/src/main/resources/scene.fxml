@@ -21,9 +21,9 @@
                     </Menu>
                 </menus>
             </MenuBar>
-            <VBox styleClass="infoBoxs">
-                <Label fx:id="areaName" />
-                <Label fx:id="areaDescription" />
+            <VBox styleClass="infoBoxes" fx:id="headBox">
+                <Label styleClass="infoLabels" fx:id="areaName"/>
+                <Label styleClass="infoLabels" fx:id="areaDescription" />
             </VBox>
         </VBox>
     </top>
@@ -34,29 +34,29 @@
       </VBox>
    </bottom>
     <left>
-      <VBox styleClass="infoBoxs"  prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <VBox prefHeight="200.0" prefWidth="100.0">
-                  <Label text="Inventář" />
+      <VBox styleClass="infoBoxes"  prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="100.0">
+                  <Label styleClass="infoLabels" text="Inventář" />
                   <VBox fx:id="inventory" prefHeight="200.0" prefWidth="100.0" />
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-                  <Label text="Vybavení" />
+            <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="100.0">
+                  <Label styleClass="infoLabels" text="Vybavení" />
                   <VBox fx:id="equipment" prefHeight="200.0" prefWidth="100.0" />
             </VBox>
       </VBox>
    </left>
    <right>
-      <VBox styleClass="infoBoxs"  prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-          <VBox prefHeight="200.0" prefWidth="100.0">
-              <Label text="Východy" />
+      <VBox styleClass="infoBoxes" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+          <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="100.0">
+              <Label styleClass="infoLabels" text="Východy" />
               <VBox fx:id="exits" prefHeight="200.0" prefWidth="100.0" />
           </VBox>
-          <VBox prefHeight="200.0" prefWidth="100.0">
-              <Label text="Postavy" />
+          <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="100.0">
+              <Label styleClass="infoLabels" text="Postavy" />
               <VBox fx:id="persons" prefHeight="200.0" prefWidth="100.0" />
           </VBox>
-          <VBox prefHeight="200.0" prefWidth="100.0">
-              <Label text="Předměty" />
+          <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="100.0">
+              <Label styleClass="infoLabels" text="Předměty" />
               <VBox fx:id="items" prefHeight="200.0" prefWidth="100.0" />
           </VBox>
       </VBox>
