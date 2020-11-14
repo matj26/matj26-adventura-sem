@@ -53,7 +53,7 @@
           </VBox>
           <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
               <Label styleClass="infoLabels" text="Postavy" />
-              <VBox fx:id="persons" prefHeight="200.0" prefWidth="200.0" />
+              <VBox fx:id="persons" prefHeight="80.0" prefWidth="200.0" />
           </VBox>
           <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
               <Label styleClass="infoLabels" text="Předměty" />

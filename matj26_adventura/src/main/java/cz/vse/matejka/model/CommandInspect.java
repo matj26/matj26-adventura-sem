@@ -22,7 +22,7 @@ public class CommandInspect implements ICommand
     /**
      * Kosnstruktor příkazu.
      *
-     * @param game odkaz na hru, která má být příkazem ukončena
+     * @param //game odkaz na hru, která má být příkazem ukončena
      */
     public CommandInspect(GamePlan plan)
     {

@@ -26,6 +26,10 @@ public class Inventory
         this.inventory = new HashMap<>();
         this.equip = new HashMap<>();
     }
+
+    public Map<String, Item> getItems() {
+        return inventory;
+    }
     
     /**
      * Pomocná metoda pro testování funkčnosti inventáře.
