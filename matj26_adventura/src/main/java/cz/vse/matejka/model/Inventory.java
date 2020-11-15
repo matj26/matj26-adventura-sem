@@ -141,13 +141,18 @@ public class Inventory
     {
         return equip.get(equipType);
     }
-    
+
+    public Map<EquipmentType, Item> getEquipment() {
+        return equip;
+    }
+
     /**
      * Metoda vrací informaci, zda inventář obsahuje předmět.
      *
      * @param name jméno předmětu
      * @return skutečnost, zda je předmět v inventáři
      */
+
     public boolean containsItem(String name)
     {
         return (inventory.containsKey(name));

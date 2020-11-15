@@ -27,7 +27,7 @@ public class MainController {
     public VBox persons;
     public VBox items;
     public VBox inventory;
-    public VBox equip;
+    public VBox equipment;
 
     private IGame game;
 
@@ -54,6 +54,7 @@ public class MainController {
         updateItems();
         updatePersons();
         updateInventory();
+        //updateEquip();
     }
 
     private void updateExits() {
@@ -75,7 +76,12 @@ public class MainController {
         Collection<Item> areaItems = getArea().getAreaItems().values();
         items.getChildren().clear();
         for (Item item : areaItems) {
-            Label element = createObject(item.getName(),"items");
+            String directory = "items";
+            if(getArea().isEquip(item.getName())) {
+                directory = "equip";
+            }
+            Label element = createObject(item.getName(), directory);
+
             if(item.isMoveable()) {
                 element.setTooltip(new Tooltip("Kliknutím sebereš předmět " + element.getText() + "."));
                 element.setOnMouseClicked(event -> {
@@ -89,7 +95,6 @@ public class MainController {
             }
             items.getChildren().add(element);
         }
-
     }
 
     private void updatePersons() {
@@ -134,10 +139,19 @@ public class MainController {
         }
     }
 
+    private void updateEquip() {
+        Collection<Item> playerEquip = game.getGamePlan().getInventory().getEquipment().values();
+        equipment.getChildren().clear();
+        for (Item item : playerEquip) {
+            Label element = createObject(item.getName(),"equip");
+            equipment.getChildren().add(element);
+        }
+    }
+
     private Label createObject(String name, String directory) {
         Label label = new Label(name);
         label.setCursor(Cursor.HAND);
-        InputStream stream = getClass().getClassLoader().getResourceAsStream(directory + "/" + name+ ".jpg");
+        InputStream stream = getClass().getClassLoader().getResourceAsStream(directory + "/" + name + ".jpg");
         Image img = new Image(stream);
         ImageView imageView = new ImageView(img);
         imageView.setFitWidth(100);
