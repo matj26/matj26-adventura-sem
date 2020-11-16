@@ -30,11 +30,13 @@ public class MainController {
     public VBox inventory;
     public VBox equipment;
     public VBox playerStats;
+    public VBox tradeButtons;
 
     private IGame game;
 
     public void init(IGame game) {
         this.game = game;
+        textOutput.setText(game.getPrologue());
         endGame();
         newGame();
         update();
@@ -162,6 +164,7 @@ public class MainController {
             }
             inventory.getChildren().add(element);
         }
+        updateTrading();
     }
 
     private void updateEquip() {
@@ -184,6 +187,32 @@ public class MainController {
                     + "\nPoškození: " + attack;
         stats.setText(info);
         playerStats.getChildren().add(stats);
+    }
+
+    private void updateTrading() {
+        Collection<Item> playerInventory = game.getGamePlan().getInventory().getItems().values();
+        ToggleGroup toggleGroup = new ToggleGroup();
+        tradeButtons.getChildren().clear();
+        for(Item item : playerInventory) {
+            RadioButton tradeButton = new RadioButton();
+            tradeButton.setToggleGroup(toggleGroup);
+            tradeButton.setText(item.getName());
+            tradeButtons.getChildren().add(tradeButton);
+            tradeButton.setStyle("-fx-padding: 10 10 10 10");
+        }
+        Button trade = new Button();
+        trade.setText("Obchodovat");
+        if(!getArea().containsEnemy() && !getArea().getAreaPersons().isEmpty()) {
+            trade.setDisable(false);
+        } else {
+            trade.setDisable(true);
+        }
+        trade.setOnMouseClicked(event -> {
+            RadioButton selectedRb = (RadioButton) toggleGroup.getSelectedToggle();
+            String selectedRbText = selectedRb.getText();
+            executeCommand("dej " + selectedRbText + " " + getPersonNameProperly(getArea().getName()));
+        });
+        tradeButtons.getChildren().add(trade);
     }
 
     private Label createObject(String name, String directory) {
@@ -251,6 +280,31 @@ public class MainController {
                 break;
             case "ketes":
                 name = "Královské město Ketes";
+                break;
+            default:
+                name = "";
+                break;
+        }
+        return name;
+    }
+
+    private String getPersonNameProperly(String areaName) {
+        String name = "";
+        switch(areaName) {
+            case "stratholme":
+                name = "zebrak";
+                break;
+            case "vetesnictvi":
+                name = "vetesnik";
+                break;
+            case "lektvary":
+                name = "obchodnice";
+                break;
+            case "hospoda":
+                name = "hospodsky";
+                break;
+            case "ketes":
+                name = "ares";
                 break;
             default:
                 name = "";

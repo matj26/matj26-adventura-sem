@@ -34,28 +34,37 @@
       </VBox>
    </bottom>
     <left>
-      <VBox styleClass="infoBoxes"  prefHeight="200.0" prefWidth="200" BorderPane.alignment="CENTER">
-            <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
-                  <Label styleClass="infoLabels" text="Inventář" />
-                  <VBox fx:id="inventory" prefHeight="200.0" prefWidth="200.0" />
-            </VBox>
-            <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
-                  <Label styleClass="infoLabels" text="Vybavení" />
-                  <VBox fx:id="equipment" prefHeight="200.0" prefWidth="200.0" />
-            </VBox>
-          <VBox styleClass="innerBoxes" prefHeight="80.0" prefWidth="200.0">
-              <Label styleClass="infoLabels" text="Obranné staty" />
-              <VBox fx:id="playerStats" prefHeight="80.0" prefWidth="200.0" />
+        <HBox>
+          <VBox styleClass="infoBoxes"  prefHeight="200.0" prefWidth="200" BorderPane.alignment="CENTER">
+                <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+                      <Label styleClass="infoLabels" text="Inventář" />
+                      <VBox fx:id="inventory" prefHeight="200.0" prefWidth="200.0" />
+                </VBox>
+                <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+                      <Label styleClass="infoLabels" text="Vybavení" />
+                      <VBox fx:id="equipment" prefHeight="200.0" prefWidth="200.0" />
+                </VBox>
           </VBox>
-      </VBox>
-   </left>
+
+            <VBox styleClass="infoBoxes"  prefHeight="200.0" prefWidth="200" BorderPane.alignment="CENTER">
+                <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+                    <Label styleClass="infoLabels" text="Obchodování" />
+                    <VBox fx:id="tradeButtons" prefHeight="200.0" prefWidth="200.0" />
+                </VBox>
+                <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+                    <Label styleClass="infoLabels" text="Obranné staty" />
+                    <VBox fx:id="playerStats" prefHeight="200.0" prefWidth="200.0" />
+                </VBox>
+            </VBox>
+        </HBox>
+    </left>
    <right>
       <VBox styleClass="infoBoxes" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
           <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
               <Label styleClass="infoLabels" text="Východy" />
               <VBox fx:id="exits" prefHeight="200.0" prefWidth="200.0" />
           </VBox>
-          <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+          <VBox styleClass="innerBoxes" prefHeight="80.0" prefWidth="200.0">
               <Label styleClass="infoLabels" text="Postavy" />
               <VBox fx:id="persons" prefHeight="80.0" prefWidth="200.0" />
           </VBox>
