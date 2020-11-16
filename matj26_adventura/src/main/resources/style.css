@@ -41,3 +41,8 @@
     -fx-font-size: 20px;
     -fx-font-weight: normal;
 }
+
+#playerStats {
+    -fx-font-size: 13;
+    -fx-alignment: center;
+}

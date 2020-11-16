@@ -17,6 +17,7 @@ import java.util.Collection;
 public class MainController {
 
     public MenuItem endButton;
+    public MenuItem newGame;
     public TextArea textOutput;
     public TextField textInput;
 
@@ -28,12 +29,14 @@ public class MainController {
     public VBox items;
     public VBox inventory;
     public VBox equipment;
+    public VBox playerStats;
 
     private IGame game;
 
     public void init(IGame game) {
         this.game = game;
         endGame();
+        newGame();
         update();
     }
 
@@ -41,6 +44,14 @@ public class MainController {
         endButton.setOnAction(event -> {
             Platform.exit();
             System.exit(0);
+        });
+    }
+
+    public void newGame() {
+        newGame.setOnAction(event -> {
+            init(new Game());
+            textOutput.clear();
+            textInput.clear();
         });
     }
 
@@ -54,7 +65,8 @@ public class MainController {
         updateItems();
         updatePersons();
         updateInventory();
-        //updateEquip();
+        updateEquip();
+        updateStats();
     }
 
     private void updateExits() {
@@ -66,6 +78,7 @@ public class MainController {
                 executeCommand("jdi " + element.getText());
             });
             element.setTooltip(new Tooltip("Kliknutím půjdeš do lokace " + element.getText() + "."));
+            element.setCursor(Cursor.HAND);
             String style = new String("-fx-background-image: url" + "('areas/" + getArea().getName() + ".jpg')");
             background.setStyle(style);
             exits.getChildren().add(element);
@@ -81,16 +94,24 @@ public class MainController {
                 directory = "equip";
             }
             Label element = createObject(item.getName(), directory);
-
             if(item.isMoveable()) {
                 element.setTooltip(new Tooltip("Kliknutím sebereš předmět " + element.getText() + "."));
+                element.setCursor(Cursor.HAND);
                 element.setOnMouseClicked(event -> {
                     executeCommand("seber " + element.getText());
                 });
             } else {
-                element.setTooltip(new Tooltip( "Předmět '" + element.getText() + "' neuneseš."));
+                element.setTooltip(new Tooltip( "Předmět '" + element.getText() + "' neuneseš, ale zkus jej prozkoumat."));
+                element.setCursor(Cursor.HAND);
                 element.setOnMouseClicked(event -> {
                     executeCommand("prozkoumej " + element.getText());
+                });
+            }
+            if(getArea().isEquip(item.getName())) {
+                element.setTooltip(new Tooltip("Kliknutím se vybavíš přemdětem " + element.getText() + "."));
+                element.setCursor(Cursor.HAND);
+                element.setOnMouseClicked(event -> {
+                    executeCommand("vybavit " + element.getText());
                 });
             }
             items.getChildren().add(element);
@@ -105,11 +126,13 @@ public class MainController {
             if(person.isEnemy()) {
                 //element.setStyle("-fx-border-color: red");
                 element.setTooltip(new Tooltip("Kliknutím zaútočíš na " + element.getText() + "."));
+                element.setCursor(Cursor.HAND);
                 element.setOnMouseClicked(event -> {
                     executeCommand("zautoc " + element.getText());
                 });
             } else {
                 element.setTooltip(new Tooltip("Kliknutím promluvíš s " + element.getText() + "."));
+                element.setCursor(Cursor.HAND);
                 //element.setStyle("-fx-border-color: green");
                 element.setOnMouseClicked(event -> {
                     executeCommand("promluv " + element.getText());
@@ -126,11 +149,13 @@ public class MainController {
             Label element = createObject(item.getName(),"items");
             if(item.getName().equals("jed")) {
                 element.setTooltip(new Tooltip("Kliknutím použiješ předmět " + element.getText() + "."));
+                element.setCursor(Cursor.HAND);
                 element.setOnMouseClicked(event -> {
                     executeCommand("pouzit " + element.getText());
                 });
             } else {
                 element.setTooltip(new Tooltip("Kliknutím vyhodíš předmět " + element.getText() + " z inventáře."));
+                element.setCursor(Cursor.HAND);
                 element.setOnMouseClicked(event -> {
                     executeCommand("vyhod " + element.getText());
                 });
@@ -143,15 +168,31 @@ public class MainController {
         Collection<Item> playerEquip = game.getGamePlan().getInventory().getEquipment().values();
         equipment.getChildren().clear();
         for (Item item : playerEquip) {
-            Label element = createObject(item.getName(),"equip");
+            Label element = createObject(item.getName(), "equip");
             equipment.getChildren().add(element);
         }
     }
 
+    private void updateStats() {
+        int health = game.getGamePlan().getPlayerHealth();
+        int armor = game.getGamePlan().getPlayerArmor();
+        int attack = game.getGamePlan().getPlayerAttack();
+        playerStats.getChildren().clear();
+        Label stats = new Label();
+        String info = "Životy: " + health
+                    + "\nBrnění: " + armor
+                    + "\nPoškození: " + attack;
+        stats.setText(info);
+        playerStats.getChildren().add(stats);
+    }
+
     private Label createObject(String name, String directory) {
         Label label = new Label(name);
-        label.setCursor(Cursor.HAND);
+
         InputStream stream = getClass().getClassLoader().getResourceAsStream(directory + "/" + name + ".jpg");
+        if(directory.equals("equip")) {
+            stream = getClass().getClassLoader().getResourceAsStream(directory + "/" + name + ".png");
+        }
         Image img = new Image(stream);
         ImageView imageView = new ImageView(img);
         imageView.setFitWidth(100);
