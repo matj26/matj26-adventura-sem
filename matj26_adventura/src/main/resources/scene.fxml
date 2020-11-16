@@ -8,7 +8,7 @@
         <VBox>
             <MenuBar BorderPane.alignment="CENTER">
                 <menus>
-                    <Menu mnemonicParsing="false" text="Hra">
+                    <Menu mnemonicParsing="false" text="Menu">
                         <items>
                             <MenuItem fx:id="newGame" mnemonicParsing="false" text="Nová hra" />
                             <MenuItem fx:id="endButton" mnemonicParsing="false" text="Konec" />

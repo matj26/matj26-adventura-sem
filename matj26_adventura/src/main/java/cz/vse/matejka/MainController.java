@@ -52,6 +52,14 @@ public class MainController {
     public void newGame() {
         newGame.setOnAction(event -> {
             init(new Game());
+            exits.setDisable(false);
+            persons.setDisable(false);
+            items.setDisable(false);
+            inventory.setDisable(false);
+            equipment.setDisable(false);
+            playerStats.setDisable(false);
+            tradeButtons.setDisable(false);
+            textInput.setDisable(false);
             textOutput.clear();
             textInput.clear();
         });
@@ -69,6 +77,21 @@ public class MainController {
         updateInventory();
         updateEquip();
         updateStats();
+        gameCheck();
+    }
+
+    private void gameCheck() {
+        if(game.isGameOver()) {
+            exits.setDisable(true);
+            persons.setDisable(true);
+            items.setDisable(true);
+            inventory.setDisable(true);
+            equipment.setDisable(true);
+            playerStats.setDisable(true);
+            tradeButtons.setDisable(true);
+            textInput.setDisable(true);
+            textOutput.setText(game.getEpilogue());
+        }
     }
 
     private void updateExits() {
@@ -81,7 +104,7 @@ public class MainController {
             });
             element.setTooltip(new Tooltip("Kliknutím půjdeš do lokace " + element.getText() + "."));
             element.setCursor(Cursor.HAND);
-            String style = new String("-fx-background-image: url" + "('areas/" + getArea().getName() + ".jpg')");
+            String style = new String("-fx-background-image: url" + "(areas/" + getArea().getName() + ".jpg)");
             background.setStyle(style);
             exits.getChildren().add(element);
         }

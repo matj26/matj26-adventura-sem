@@ -91,10 +91,10 @@ public class Game implements IGame
     @Override
     public String getEpilogue()
     {
-        String epilogue = "PROHRÁL JSI!!!\nCestu do Ketesu jsi nezvládl.";
+        String epilogue = "PROHRÁL JSI!!!\nCestu do Ketesu jsi nezvládl.\nPro novou hru využij menu vlevo nahoře.";
 
         if (gamePlan.isVictorious()) {
-            epilogue = "VYHRÁL JSI!!!\nPodařilo se ti doručit dopis králi Aresovi a zachránit tak spousty životů.";
+            epilogue = "VYHRÁL JSI!!!\nPodařilo se ti doručit dopis králi Aresovi a zachránit tak spousty životů.\nPro novou hru využij menu vlevo nahoře.";
         }
         
         return epilogue;

@@ -282,10 +282,10 @@ public class GamePlan
      */
     public boolean hasStrongEquip()
     {
-        if (getPlayerAttack() != 45 && (getPlayerArmor() + getPlayerHealth()) != 200) {
-            return false;
+        if (getPlayerAttack() == 45 && (getPlayerArmor() + getPlayerHealth()) == 200) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
