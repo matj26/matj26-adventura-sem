@@ -117,7 +117,7 @@ public class Area
     /**
      * Metoda zamyká lokaci, aby do ní nebylo možné jít.
      *
-     * @param //zamknutí lokace
+     * @param lock lokace
      */
     public void lockArea(boolean lock) {
         locked = lock;
@@ -329,6 +329,7 @@ public class Area
 
     /**
      * Metoda vrací kolekci všech postav v lokaci.
+     *
      * @return vrátí odkaz na kolekci osob
      */
     public Map<String, Person> getAreaPersons() {
@@ -370,7 +371,9 @@ public class Area
         String statement = "";
         switch(areaName) {
             case "les":
-                statement = "Jsi v temném hlubokém lese. Strom u kterého jsi viděl třpytivou věc jsi už prohledal a našel jsi zlaté jablko.";
+                statement = "Jsi v temném hlubokém lese. Strom u kterého jsi viděl třpytivou věc jsi už prohledal a našel jsi zlaté jablko."
+                        +  "\nNa konci lesa vidíš polní cestu, kde se kouří z táborového ohně. Pozorně se podíváš a rozpoznáš skupinu templářů."
+                        + "\nPolní cesta vede do Ketesu, a proto se budeš muset probojovat. Zkus zvážit jestli nemůžeš sehnat lepší vybavení nebo se vrhni do boje!";;
                 break;
             case "roklina":
                 statement = "Na konci rokliny vidíš cestu, která vede někam do neznáma a přímo před sebou vchod do hluboké temné jeskyně.\n"
@@ -382,23 +385,13 @@ public class Area
             case "polni_cesta":
                 statement = "Vyšel jsi z lesa na polní cestu, avšak průchod jsi si již úspěšně vybojoval. Už musíš jen doručit dopis do Ketesu.";
                 break;
+            case "vetesnictvi":
+                statement = "Vstoupil jsi do malého obchůdku a za pultem vidíš stát vetešníka.";
+                break;
             default:
                 statement = "";
                 break;
         }
-        
         this.description = statement;
     }
-    
-    /**
-     * Metoda přidá k popisku lokace text.
-     * Tato metoda byla vytvořena za účelem informování, zda má hráč silné vybavení na to, aby porazil hlavního nepřítele
-     *
-     * @param statement text, který je přidán k popisku lokace
-     */
-    public void addAreaStatement(String statement)
-    {
-        this.description += statement;
-    }
-
 }

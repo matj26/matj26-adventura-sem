@@ -111,8 +111,6 @@ public class GamePlan
         roklina.addExit(jeskyne);        
         jeskyne.addExit(roklina);
         jeskyne.lockArea(true);
-        hostinec.addExit(ketes);
-        stratholme.addExit(ketes);
         // Vyvoříme předměty do lokací
         Item dopis = new Item("dopis", "Dopis pro krále Arese.");
         Item mesec = new Item("mesec_zlatych", "Měšec plný zlatých mincí");
@@ -169,7 +167,8 @@ public class GamePlan
      */
     public int getPlayerArmor()
     {
-        return inventory.getEquip(EquipmentType.BOTY).getArmor() 
+
+        return inventory.getEquip(EquipmentType.BOTY).getArmor()
         + inventory.getEquip(EquipmentType.HELMA).getArmor()
         + inventory.getEquip(EquipmentType.BRNENI).getArmor()
         + inventory.getEquip(EquipmentType.KALHOTY).getArmor();
@@ -182,10 +181,10 @@ public class GamePlan
      */
     public int getPlayerHealth()
     {
-        return inventory.getEquip(EquipmentType.BOTY).getHealth() 
-        + inventory.getEquip(EquipmentType.HELMA).getHealth()
-        + inventory.getEquip(EquipmentType.BRNENI).getHealth()
-        + inventory.getEquip(EquipmentType.KALHOTY).getHealth();
+        return inventory.getEquip(EquipmentType.BOTY).getHealth()
+                + inventory.getEquip(EquipmentType.HELMA).getHealth()
+                + inventory.getEquip(EquipmentType.BRNENI).getHealth()
+                + inventory.getEquip(EquipmentType.KALHOTY).getHealth();
     }
 
     /**
@@ -233,15 +232,9 @@ public class GamePlan
                 description = "Hned jak vstoupíš do jeskyně, všimne si tě zloděj, který na tebe okamžitě zaútočí.";
                 break;
             case "les":
-                description = "Jsi v temném hlubokém lese. Mezi velkými stromy je jeden, u kterého se na zemi něco třpytí.\n";
-                if (hasStrongEquip()) {
-                    description += "Na konci lesa vidíš polní cestu, kde se kouří z táborového ohně. Pozorně se podíváš a rozpoznáš skupinu templářů.\n"
-                    + "Polní cesta vede do Ketesu, a proto se budeš muset probojovat. Tvé vybavení je obstojné a jsi připraven bojovat";
-                }
-                else {
-                    description += "Na konci lesa vidíš polní cestu, kde se kouří z táborového ohně. Pozorně se podíváš a rozpoznáš skupinu templářů.\n"
-                    + "Polní cesta vede do Ketesu, a proto se budeš muset probojovat. Bohužel tvé vybavení není příliš dobré, tak se rozmysli, zda chceš boj s templáři riskovat.";
-                }
+                description = "Jsi v temném hlubokém lese. Mezi velkými stromy je jeden, u kterého se na zemi něco třpytí."
+                            +  "\nNa konci lesa vidíš polní cestu, kde se kouří z táborového ohně. Pozorně se podíváš a rozpoznáš skupinu templářů."
+                            + "\nPolní cesta vede do Ketesu, a proto se budeš muset probojovat. Zkus zvážit jestli nemůžeš sehnat lepší vybavení nebo se vrhni do boje!";
                 break;
             case "polni_cesta":
                 description = "Jeden z jezdců tě spatří a zakřičí: \"Podívejte chlapi! To je ten lovec, kterému dal zbrojnoš dopis! Zabte ho a dopis mu vemte!\"";
@@ -275,19 +268,6 @@ public class GamePlan
     public Area getSpecificArea(String name) 
     {
         return allAreas.get(name);
-    }
-
-    /**
-     * Metoda kontroluje, zda má hráč nejsilnější možnou výbavu ve hře, aby mohl porazit 'templáře' v lokaci 'polni_cesta' a dostat se tak do cílové lokace.
-     *
-     * @return skutečnost, zda má hráč nejsilnější možnou výbavu
-     */
-    public boolean hasStrongEquip()
-    {
-        if (getPlayerAttack() == 45 && (getPlayerArmor() + getPlayerHealth()) == 200) {
-            return true;
-        }
-        return false;
     }
 
     /**

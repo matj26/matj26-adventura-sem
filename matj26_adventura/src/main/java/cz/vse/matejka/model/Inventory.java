@@ -27,6 +27,12 @@ public class Inventory
         this.equip = new HashMap<>();
     }
 
+    /**
+     * Metoda pro odkaz na stávající inventář s konkrétními předměty.
+     * Využívá se pro aktualizaci všech předmětvů v inventáři v grafickém rozhraní.
+     * Vrací pouze inventář, vybavení má svou metodu.
+     * @return odkaz na inventář
+     */
     public Map<String, Item> getItems() {
         return inventory;
     }
@@ -142,6 +148,12 @@ public class Inventory
         return equip.get(equipType);
     }
 
+    /**
+     * Metoda vrací odkaz kolekci vybavení.
+     * Slouží pro aktualizaci vybavení v grafickém rozhraní.
+     *
+     * @return odkaz na kolekci vybavení
+     */
     public Map<EquipmentType, Item> getEquipment() {
         return equip;
     }

@@ -1,6 +1,5 @@
 package cz.vse.matejka.main;
 
-
 import cz.vse.matejka.MainController;
 import cz.vse.matejka.model.Game;
 import cz.vse.matejka.model.IGame;

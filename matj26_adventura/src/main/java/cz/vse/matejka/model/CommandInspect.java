@@ -72,16 +72,6 @@ public class CommandInspect implements ICommand
                 case "strom":
                     area.addItem(new Item("zlate_jablko", "Zlaté jablko, komu asi patří?"));
                     area.changeAreaStatement(area.getName());
-                    String description = "";
-                    if (plan.hasStrongEquip()) {
-                        description += "\nNa konci lesa vidíš polní cestu, kde se kouří z táborového ohně. Pozorně se podíváš a rozpoznáš skupinu templářů.\n"
-                                    + "Polní cesta vede do Ketesu, a proto se budeš muset probojovat. Tvé vybavení je obstojné a jsi připraven bojovat"; 
-                    }
-                    else {
-                        description += "\nNa konci lesa vidíš polní cestu, kde se kouří z táborového ohně. Pozorně se podíváš a rozpoznáš skupinu templářů.\n"
-                                    + "Polní cesta vede do Ketesu, a proto se budeš muset probojovat. Bohužel tvé vybavení není příliš dobré, tak se rozmysli, zda chceš boj s templáři riskovat.";
-                    }
-                    area.addAreaStatement(description);
                     ret = "Přistoupil jsi ke stromu a z listí si vyhrabal předmět 'zlate_jablko'.";
                     area.getItem(itemName).inspect(true);
                     break;

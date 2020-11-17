@@ -106,10 +106,10 @@ public class MainController {
             });
             element.setTooltip(new Tooltip("Kliknutím půjdeš do lokace " + element.getText() + "."));
             element.setCursor(Cursor.HAND);
-            String style = new String("-fx-background-image: url" + "(areas/" + getArea().getName() + ".jpg)");
-            background.setStyle(style);
             exits.getChildren().add(element);
         }
+        String style = new String("-fx-background-image: url(areas/" + getArea().getName() +".jpg)");
+        background.setStyle(style);
     }
 
     private void updateItems() {
@@ -151,7 +151,6 @@ public class MainController {
         for (Person person : areaPersons) {
             Label element = createObject(person.getName(),"persons");
             if(person.isEnemy()) {
-                //element.setStyle("-fx-border-color: red");
                 element.setTooltip(new Tooltip("Kliknutím zaútočíš na " + element.getText() + "."));
                 element.setCursor(Cursor.HAND);
                 element.setOnMouseClicked(event -> {
@@ -160,7 +159,6 @@ public class MainController {
             } else {
                 element.setTooltip(new Tooltip("Kliknutím promluvíš s " + element.getText() + "."));
                 element.setCursor(Cursor.HAND);
-                //element.setStyle("-fx-border-color: green");
                 element.setOnMouseClicked(event -> {
                     executeCommand("promluv " + element.getText());
                 });
