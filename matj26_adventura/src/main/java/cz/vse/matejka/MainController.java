@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.InputStream;
@@ -32,10 +33,21 @@ public class MainController {
     public VBox playerStats;
     public VBox tradeButtons;
 
+    public HBox leftBox;
+    public VBox textAreas;
+    public VBox rightBox;
+    public VBox headBox;
+    public Label endInfo;
+
     private IGame game;
 
     public void init(IGame game) {
         this.game = game;
+        textAreas.setVisible(true);
+        leftBox.setVisible(true);
+        rightBox.setVisible(true);
+        headBox.setVisible(true);
+        endInfo.setVisible(false);
         textOutput.setText(game.getPrologue());
         endGame();
         newGame();
@@ -52,15 +64,8 @@ public class MainController {
     public void newGame() {
         newGame.setOnAction(event -> {
             init(new Game());
-            exits.setDisable(false);
-            persons.setDisable(false);
-            items.setDisable(false);
-            inventory.setDisable(false);
-            equipment.setDisable(false);
-            playerStats.setDisable(false);
-            tradeButtons.setDisable(false);
-            textInput.setDisable(false);
             textOutput.clear();
+            textOutput.setText(game.getPrologue());
             textInput.clear();
         });
     }
@@ -82,15 +87,12 @@ public class MainController {
 
     private void gameCheck() {
         if(game.isGameOver()) {
-            exits.setDisable(true);
-            persons.setDisable(true);
-            items.setDisable(true);
-            inventory.setDisable(true);
-            equipment.setDisable(true);
-            playerStats.setDisable(true);
-            tradeButtons.setDisable(true);
-            textInput.setDisable(true);
-            textOutput.setText(game.getEpilogue());
+            textAreas.setVisible(false);
+            leftBox.setVisible(false);
+            rightBox.setVisible(false);
+            headBox.setVisible(false);
+            endInfo.setVisible(true);
+            endInfo.setText(game.getEpilogue());
         }
     }
 

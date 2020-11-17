@@ -111,6 +111,8 @@ public class GamePlan
         roklina.addExit(jeskyne);        
         jeskyne.addExit(roklina);
         jeskyne.lockArea(true);
+        hostinec.addExit(ketes);
+        stratholme.addExit(ketes);
         // Vyvoříme předměty do lokací
         Item dopis = new Item("dopis", "Dopis pro krále Arese.");
         Item mesec = new Item("mesec_zlatych", "Měšec plný zlatých mincí");

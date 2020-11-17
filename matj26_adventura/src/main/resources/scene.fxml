@@ -21,37 +21,37 @@
                     </Menu>
                 </menus>
             </MenuBar>
-            <VBox styleClass="infoBoxes" fx:id="headBox">
-                <Label styleClass="infoLabels" fx:id="areaName"/>
-                <Label styleClass="infoLabels" fx:id="areaDescription" />
+            <VBox fx:id="headBox" styleClass="infoBoxes">
+                <Label fx:id="areaName" styleClass="infoLabels" />
+                <Label fx:id="areaDescription" styleClass="infoLabels" />
             </VBox>
         </VBox>
     </top>
     <bottom>
       <VBox fx:id="textAreas" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <TextField fx:id="textInput" onKeyPressed="#onInputKeyPressed"/>
+            <TextField fx:id="textInput" onKeyPressed="#onInputKeyPressed" />
             <TextArea fx:id="textOutput" editable="false" prefHeight="200.0" prefWidth="200.0" />
       </VBox>
    </bottom>
     <left>
-        <HBox>
-          <VBox styleClass="infoBoxes"  prefHeight="200.0" prefWidth="200" BorderPane.alignment="CENTER">
-                <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+        <HBox fx:id="leftBox">
+          <VBox prefHeight="200.0" prefWidth="200" styleClass="infoBoxes" BorderPane.alignment="CENTER">
+                <VBox prefHeight="200.0" prefWidth="200.0" styleClass="innerBoxes">
                       <Label styleClass="infoLabels" text="Inventář" />
                       <VBox fx:id="inventory" prefHeight="200.0" prefWidth="200.0" />
                 </VBox>
-                <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+                <VBox prefHeight="200.0" prefWidth="200.0" styleClass="innerBoxes">
                       <Label styleClass="infoLabels" text="Vybavení" />
                       <VBox fx:id="equipment" prefHeight="200.0" prefWidth="200.0" />
                 </VBox>
           </VBox>
 
-            <VBox styleClass="infoBoxes"  prefHeight="200.0" prefWidth="200" BorderPane.alignment="CENTER">
-                <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+            <VBox prefHeight="200.0" prefWidth="200" styleClass="infoBoxes" BorderPane.alignment="CENTER">
+                <VBox prefHeight="200.0" prefWidth="200.0" styleClass="innerBoxes">
                     <Label styleClass="infoLabels" text="Obchodování" />
                     <VBox fx:id="tradeButtons" prefHeight="200.0" prefWidth="200.0" />
                 </VBox>
-                <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+                <VBox prefHeight="200.0" prefWidth="200.0" styleClass="innerBoxes">
                     <Label styleClass="infoLabels" text="Obranné staty" />
                     <VBox fx:id="playerStats" prefHeight="200.0" prefWidth="200.0" />
                 </VBox>
@@ -59,19 +59,22 @@
         </HBox>
     </left>
    <right>
-      <VBox styleClass="infoBoxes" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-          <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+      <VBox fx:id="rightBox" prefHeight="200.0" prefWidth="200.0" styleClass="infoBoxes" BorderPane.alignment="CENTER">
+          <VBox prefHeight="200.0" prefWidth="200.0" styleClass="innerBoxes">
               <Label styleClass="infoLabels" text="Východy" />
               <VBox fx:id="exits" prefHeight="200.0" prefWidth="200.0" />
           </VBox>
-          <VBox styleClass="innerBoxes" prefHeight="80.0" prefWidth="200.0">
+          <VBox prefHeight="80.0" prefWidth="200.0" styleClass="innerBoxes">
               <Label styleClass="infoLabels" text="Postavy" />
               <VBox fx:id="persons" prefHeight="80.0" prefWidth="200.0" />
           </VBox>
-          <VBox styleClass="innerBoxes" prefHeight="200.0" prefWidth="200.0">
+          <VBox prefHeight="200.0" prefWidth="200.0" styleClass="innerBoxes">
               <Label styleClass="infoLabels" text="Předměty" />
               <VBox fx:id="items" prefHeight="200.0" prefWidth="200.0" />
           </VBox>
       </VBox>
    </right>
+   <center>
+       <Label fx:id="endInfo" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

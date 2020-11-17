@@ -1,10 +1,9 @@
 #background {
     -fx-background-size: 100%;
-    -fx-background-image: url('areas/hostinec.jpg');
 }
 
 #textAreas {
-    -fx-opacity: 0.65;
+    -fx-opacity: 0.70;
     -fx-border-color: black;
     -fx-font-size: 15px;
 }
@@ -14,14 +13,14 @@
 }
 
 .innerBoxes {
-    -fx-opacity: 0.65;
+    -fx-opacity: 0.70;
     -fx-background-color: white;
     -fx-alignment: center;
 }
 
 #headBox {
     -fx-padding: 10;
-    -fx-opacity: 0.65;
+    -fx-opacity: 0.70;
     -fx-background-color: white;
     -fx-alignment: center;
 }
@@ -29,7 +28,6 @@
 .infoLabels {
     -fx-font-weight: bold;
     -fx-font-size: 15px;
-
 }
 
 #areaName {
@@ -50,3 +48,14 @@
     -fx-font-size: 13;
     -fx-alignment: center;
 }
+
+#endInfo {
+    -fx-padding: 10;
+    -fx-opacity: 0.70;
+    -fx-font-size: 30px;
+    -fx-font-weight: normal;
+    -fx-background-color: white;
+    -fx-text-alignment: center;
+    -fx-translate-x: -100;
+}
+
