@@ -42,6 +42,12 @@ public final class Start extends Application
         }
     }
 
+    /**
+     * Metoda start, sloužící pro spuštění aplikace v řežimu grafického rozhraní.
+     *
+     * @param primaryStage parametr okna, které zobrazujeme
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Dopis pro krále");
