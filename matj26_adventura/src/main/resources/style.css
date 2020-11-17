@@ -60,3 +60,7 @@
     -fx-translate-x: -100;
 }
 
+/*ÚPRAVY PRO NÁPOVĚDU*/
+.p {
+    font-size: 10px;
+}

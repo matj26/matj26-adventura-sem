@@ -3,6 +3,7 @@ package cz.vse.matejka;
 import cz.vse.matejka.model.*;
 import javafx.application.Platform;
 import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,7 +12,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 import java.io.InputStream;
 import java.util.Collection;
 
@@ -26,6 +29,7 @@ public class MainController {
 
     public MenuItem endButton;
     public MenuItem newGame;
+    public MenuItem helpButton;
     public TextArea textOutput;
     public TextField textInput;
 
@@ -64,6 +68,7 @@ public class MainController {
         textOutput.setText(game.getPrologue());
         endGame();
         newGame();
+        help();
         update();
     }
 
@@ -87,6 +92,27 @@ public class MainController {
             textOutput.clear();
             textOutput.setText(game.getPrologue());
             textInput.clear();
+        });
+    }
+
+    /**
+     * Metoda přiřazuje tlačítku "Nápověda" akci pro zobrazení nápovědy.
+     * Zobrazí se nové okno.
+     */
+    public void help() {
+        helpButton.setOnAction(event -> {
+            WebView webView = new WebView();
+            WebEngine engine = webView.getEngine();
+            engine.load(getClass().getResource("/help.html").toString());
+            Scene sceneHelp = new Scene(webView);
+            Stage stageHelp = new Stage();
+            stageHelp.setTitle("Nápověda");
+            stageHelp.setScene(sceneHelp);
+            //Ikona
+            InputStream streamIcon = getClass().getClassLoader().getResourceAsStream("information.png");
+            Image imageIcon = new Image(streamIcon);
+            stageHelp.getIcons().add(imageIcon);
+            stageHelp.show();
         });
     }
 
