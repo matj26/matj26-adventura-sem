@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="cz.vse.matejka.model.AreaTest" time="0.057" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="cz.vse.matejka.model.AreaTest" time="0.055" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2020.2.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -66,5 +66,5 @@
   </properties>
   <testcase classname="cz.vse.matejka.model.AreaTest" name="testItems" time="0.006"/>
   <testcase classname="cz.vse.matejka.model.AreaTest" name="testPersons" time="0"/>
-  <testcase classname="cz.vse.matejka.model.AreaTest" name="testAreaExits" time="0.051"/>
+  <testcase classname="cz.vse.matejka.model.AreaTest" name="testAreaExits" time="0.049"/>
 </testsuite>

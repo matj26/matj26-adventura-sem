@@ -54,12 +54,17 @@ public class MainController {
         update();
     }
 
+    /**
+     * Metoda přiřazuje ukončení programu tlačítku "Konec" v menu aplikace
+     *
+     */
     public void endGame() {
         endButton.setOnAction(event -> {
             Platform.exit();
             System.exit(0);
         });
     }
+
 
     public void newGame() {
         newGame.setOnAction(event -> {
