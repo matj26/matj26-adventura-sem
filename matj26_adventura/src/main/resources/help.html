@@ -29,6 +29,25 @@
         vypisoval při textové verzi. To znamená, že se zde vypisují promluvy postav, popisy akcí, které jsme provedli
         nebo i námi napsané příkazy. Také se zde vypisují chybové texty, které nám ve hře zakazují dělat určité akce.</p>
         <h4>Pravá část</h4>
-        <p>Pravá část </p>
+        <p>Pravá část je tvořena informacemi o aktuální lokaci. V první řadě se zde vypisují sousední lokace, do kterých
+        hráč může vstoupit. Lokace jsou vypisovány s názvem, ale i zobrazeny obrázkem. Pod lokacemi se vypisují postavy,
+        které jsou v aktuální lokaci. Zde se vypíše postava bez ohledu na to, zda je přátelská (lze s ní mluvit a obchodovat)
+        či nepřátelská (lze s ní bojovat). Pokud hráč najede kurzorem na obrázek postavy, zobrazí se mu nápověda, jestli
+        po kliknutí na postavu zaútočí nebo s ní promluví. Po kliknutí se pro oba případy vypíše text do dolního
+        textového pole. Poslední část pravého panelu jsou předměty, které jsou v lokaci. Po kliknutí na předmět, hráč
+        přidá předmět do svého inventáře. Pokud se jedná o nepřenositelný předmět, hřáči se u kurzoru objeví informace,
+        že předmět může prozkoumat. Prozkoumáním se vypíše do spodního textového pole nějaká informace o předmětu nebo
+        se provede jiná akce, která se celkově projeví v grafickém rozhraní (objevení nového předmětu). Pokud se jedná
+        předmět, který je vybavení, hráč se předmětem vybaví.</p>
+        <h4>Levá část</h4>
+        <p>Poslední část tvoří hráčův inventář. <b>Inventář</b> je tvořen předměty, které hráč může sebrat v lokaci nebo
+        s nima obchodovat. Po kliknutí na předmět hráč předmět vyhodí na zem do lokace. Ve hře je předmět <b>jed</b>,
+        který z inventáře nelze vyhodit, ale pouze si s ním vylepšit zbraň. Část <b>vybavení</b> v sobě zahrnuje
+        předměty, které jsou součástí vybavení. Pokud hráč sebere předmět, který představuje zbroj, předmět se nepřidá
+        do inventáře, ale do vybavení. Předměty vybavení nelze vyhodit, pouze je nahradit. Okénko s obchodováním
+        kopíruje všechny předměty, které jsou součástí aktuálního inventáře. Pokud chce hráč předmět dát nějaké postavě
+        musí se nacházet v lokaci, kde je <b>přátelská</b> postava a zaškrtnout předmět v okénku. Hráč může obchodovat
+        pouze s přátelskými postavami a dávat jim předměty, které po hráči chtějí. POslední okénko zobrazuje
+        hráčovo maximální hodnotu životů, brnění a poškození.</p>
 </body>
 </html>

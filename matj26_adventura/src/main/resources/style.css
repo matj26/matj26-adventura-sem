@@ -61,6 +61,10 @@
 }
 
 /*ÚPRAVY PRO NÁPOVĚDU*/
-.p {
-    font-size: 10px;
+body {
+    font-family: "Segoe UI";
+}
+
+p {
+    text-alignment: justify;
 }
