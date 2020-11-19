@@ -1,14 +1,14 @@
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\AreaTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandInventoryTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandPickTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\GameTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandInspectTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandEquipTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandDropTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandGiveTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandAttackTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandMoveTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\InventoryTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandTalkTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\ListOfCommandsTest.java
-E:\VŠE\3. semestr\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandUseTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\ListOfCommandsTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandGiveTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\AreaTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\GameTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandPickTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandTalkTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandEquipTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandInventoryTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandAttackTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandInspectTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\InventoryTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandDropTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandMoveTest.java
+E:\VSE\semestr3\Softwarové inženýrství\matj26-adventura-sem\matj26_adventura\src\test\java\cz\vse\matejka\model\CommandUseTest.java
